@@ -1,0 +1,41 @@
+@use '@carbon/react/scss/components/text-input';
+@use '@carbon/react/scss/components/combo-box';
+@use '@carbon/react/scss/utilities/visually-hidden';
+
+:root {
+	--spacer-default: 0.625rem;
+
+	--body-color: #000;
+	--body-bg: #fff;
+	--gray-light: #eee;
+	--gray-dark: #ccc;
+
+	--primary-color: #74c0a2;
+
+	--card-body-bg: #f3f3f3;
+	--card-favorite-color: #fc0d1b;
+}
+
+*,
+::after,
+::before {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	max-width: 100%;
+	min-width: 20rem;
+	overflow-y: scroll;
+	background-color: var(--body-bg);
+	color: var(--body-color);
+}
+
+button {
+	cursor: pointer;
+	padding: 0;
+	background-color: transparent;
+	appearance: none;
+	border: 0;
+}

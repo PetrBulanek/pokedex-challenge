@@ -1,0 +1,61 @@
+.filtersBar {
+	display: grid;
+	gap: var(--spacer-default);
+}
+
+.tabButtonsGroup {
+	display: flex;
+}
+
+.tabButton {
+	flex: 1 0 0;
+	border: 1px solid var(--primary-color);
+	color: var(--primary-color);
+	font-size: 1rem;
+	line-height: 1.25;
+	padding: 0.5625rem;
+	transition:
+		color 0.3s,
+		background-color 0.3s;
+	&:hover:not(.tabButtonActive) {
+		background-color: var(--gray-light);
+	}
+}
+
+.tabButtonActive {
+	background-color: var(--primary-color);
+	color: #fff;
+}
+
+.bottom {
+	display: flex;
+	align-items: center;
+	column-gap: calc(var(--spacer-default) / 2);
+}
+
+.inputs {
+	flex-grow: 1;
+	display: grid;
+	column-gap: var(--spacer-default);
+	grid-template-columns: 2fr 1fr;
+}
+
+.viewButtonsGroup {
+	display: flex;
+	button + button {
+		border-left: 1px solid var(--gray-light);
+	}
+}
+
+.viewButton {
+	color: var(--primary-color);
+	display: flex;
+	width: 2.5rem;
+	height: 2.5rem;
+	justify-content: center;
+	align-items: center;
+	transition: background-color 0.3s;
+	&:hover {
+		background-color: var(--gray-light);
+	}
+}

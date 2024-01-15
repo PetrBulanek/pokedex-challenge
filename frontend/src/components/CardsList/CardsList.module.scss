@@ -1,0 +1,21 @@
+.holder {
+	display: grid;
+	gap: var(--spacer-default);
+	list-style: none;
+}
+
+.grid {
+	grid-template-columns: repeat(var(--columns, 1), 1fr);
+
+	@media (min-width: 30rem) {
+		--columns: 2;
+	}
+
+	@media (min-width: 48rem) {
+		--columns: 4;
+	}
+
+	@media (min-width: 64rem) {
+		--columns: 5;
+	}
+}
