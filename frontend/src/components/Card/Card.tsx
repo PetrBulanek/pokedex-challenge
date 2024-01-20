@@ -28,7 +28,7 @@ const Card = ({ view = 'grid', id, image, name, types, isFavorite, refetch }: Ca
 					{types && <p className={styles.types}>{types.join(', ')}</p>}
 				</div>
 
-				<FavoriteButton id={id} isFavorite={isFavorite} refetch={refetch} />
+				<FavoriteButton id={id} isFavorite={isFavorite} name={name} refetch={refetch} />
 			</div>
 		</article>
 	);

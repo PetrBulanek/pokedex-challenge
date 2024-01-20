@@ -48,7 +48,7 @@ const DetailCard = ({
 							<p className={styles.types}>{types.join(', ')}</p>
 						</div>
 
-						<FavoriteButton id={id} isFavorite={isFavorite} size="lg" refetch={refetch} />
+						<FavoriteButton id={id} isFavorite={isFavorite} size="lg" name={name} refetch={refetch} />
 					</div>
 
 					<div className={styles.bodyBottom}>
