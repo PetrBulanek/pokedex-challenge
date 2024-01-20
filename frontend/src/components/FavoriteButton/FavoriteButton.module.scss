@@ -1,0 +1,9 @@
+.favoriteButton {
+	color: var(--card-favorite-color);
+	position: relative;
+	&::before {
+		content: '';
+		position: absolute;
+		inset: -0.625rem;
+	}
+}

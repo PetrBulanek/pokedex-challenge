@@ -2,6 +2,7 @@
 	border: 1px solid var(--gray-dark);
 	min-height: 100%;
 	display: flex;
+	position: relative;
 }
 
 .image {
@@ -30,14 +31,19 @@
 
 .name {
 	font-size: 1rem;
+	a {
+		color: inherit;
+		text-decoration: none;
+		&::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+		}
+	}
 }
 
 .types {
 	font-size: 0.875rem;
-}
-
-.favorite {
-	color: var(--card-favorite-color);
 }
 
 .grid {

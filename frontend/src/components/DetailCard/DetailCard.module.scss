@@ -1,0 +1,75 @@
+.detailCard {
+	border: 1px solid var(--gray-dark);
+	margin-bottom: calc(2 * var(--spacer-default));
+}
+
+.header {
+	position: relative;
+}
+
+.image {
+	padding: var(--spacer-default);
+	span {
+		aspect-ratio: 3 / 2;
+		display: block;
+		position: relative;
+	}
+	img {
+		object-fit: contain;
+	}
+}
+
+.soundButton {
+	position: absolute;
+	left: calc(2.5 * var(--spacer-default));
+	bottom: calc(2.5 * var(--spacer-default));
+}
+
+.body {
+	background-color: var(--card-body-bg);
+	padding: calc(2 * var(--spacer-default)) var(--spacer-default) calc(3 * var(--spacer-default));
+}
+
+.bodyTop {
+	display: flex;
+	align-items: center;
+	column-gap: var(--spacer-default);
+	justify-content: space-between;
+}
+
+.content {
+	flex-grow: 1;
+}
+
+.name {
+	font-size: 1.5rem;
+}
+
+.bodyBottom {
+	margin-top: var(--spacer-default);
+}
+
+.params {
+	background-color: var(--card-body-bg);
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.param {
+	border: solid var(--gray-dark);
+	padding: calc(2 * var(--spacer-default)) var(--spacer-default);
+	text-align: center;
+	border-width: 1px 0 0 1px;
+	margin-left: -1px;
+}
+
+.paramName {
+	font-weight: bold;
+	font-size: 1.25rem;
+	margin-bottom: calc(0.5 * var(--spacer-default));
+}
+
+.heading {
+	font-size: 1.25rem;
+	margin-bottom: var(--spacer-default);
+}

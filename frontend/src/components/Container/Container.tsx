@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { HTMLAttributes } from 'react';
 import styles from './Container.module.scss';
 
-interface ContainerProps extends HTMLAttributes<HTMLDivElement> {}
+type ContainerProps = HTMLAttributes<HTMLDivElement>;
 
 const Container = ({ className, ...props }: ContainerProps) => {
 	return <div {...props} className={clsx(styles.container, className)} />;

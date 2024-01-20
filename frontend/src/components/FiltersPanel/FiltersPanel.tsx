@@ -1,25 +1,31 @@
-import { getPokemonTypes } from '@/app/lib/graphql/query';
+import { getPokemonTypesQuery } from '@/lib/graphql/query';
 import { CardView, TabView } from '@/types';
 import { useQuery } from '@apollo/client';
 import { ComboBox, TextInput } from '@carbon/react';
 import clsx from 'clsx';
 import { GridViewIcon } from '../icons/GridView';
 import { ListViewIcon } from '../icons/ListView';
-import styles from './FiltersBar.module.scss';
+import styles from './FiltersPanel.module.scss';
 
-interface FiltersBarProps {
+type FiltersPanelProps = {
 	activeTab: TabView;
 	onTabChange: (view: TabView) => void;
 	onCardViewChange: (view: CardView) => void;
 	onSearchChange: (term: string) => void;
 	onTypeChange: (type?: string | null) => void;
-}
+};
 
-const FiltersBar = ({ activeTab, onTabChange, onCardViewChange, onSearchChange, onTypeChange }: FiltersBarProps) => {
-	const { data } = useQuery(getPokemonTypes);
+const FiltersPanel = ({
+	activeTab,
+	onTabChange,
+	onCardViewChange,
+	onSearchChange,
+	onTypeChange,
+}: FiltersPanelProps) => {
+	const { data } = useQuery(getPokemonTypesQuery);
 
 	return (
-		<div className={styles.filtersBar}>
+		<div className={styles.filtersPanel}>
 			<div className={styles.tabButtonsGroup}>
 				<button
 					type="button"
@@ -81,4 +87,4 @@ const FiltersBar = ({ activeTab, onTabChange, onCardViewChange, onSearchChange, 
 	);
 };
 
-export { FiltersBar };
+export { FiltersPanel };

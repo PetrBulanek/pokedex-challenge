@@ -1,0 +1,24 @@
+.vitalSigns {
+	display: grid;
+	gap: var(--spacer-default);
+	grid-template-columns: 1fr auto;
+	align-items: center;
+}
+
+.bar {
+	height: 0.625rem;
+	border-radius: 0.3125rem;
+	flex-grow: 1;
+}
+
+.barCP {
+	background-color: var(--cp-bar-bg);
+}
+
+.barHP {
+	background-color: var(--hp-bar-bg);
+}
+
+.label {
+	font-weight: bold;
+}

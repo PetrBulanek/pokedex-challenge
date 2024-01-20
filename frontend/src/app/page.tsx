@@ -3,14 +3,13 @@
 import { Card } from '@/components/Card/Card';
 import { CardsList } from '@/components/CardsList/CardsList';
 import { Container } from '@/components/Container/Container';
-import { FiltersBar } from '@/components/FiltersBar/FiltersBar';
+import { FiltersPanel } from '@/components/FiltersPanel/FiltersPanel';
 import { SEARCH_THRESHOLD } from '@/constants';
 import { CardView, TabView } from '@/types';
-import { useMutation, useQuery } from '@apollo/client';
-import { useEffect, useState } from 'react';
+import { useQuery } from '@apollo/client';
+import { useState } from 'react';
 import { useSessionStorage } from 'usehooks-ts';
-import { favoritePokemonMutation, unFavoritePokemonMutation } from './lib/graphql/mutation';
-import { getPokemonsQuery } from './lib/graphql/query';
+import { getPokemonsQuery } from '../lib/graphql/query';
 import styles from './page.module.scss';
 
 export default function Home() {
@@ -20,14 +19,6 @@ export default function Home() {
 	const [selectedType, setSelectedType] = useState<string | null | undefined>(null);
 
 	const { loading, error, data, refetch } = useQuery(getPokemonsQuery);
-	const [favoritePokemon, { data: dataFavorite }] = useMutation(favoritePokemonMutation);
-	const [unFavoritePokemon, { data: dataUnFavorite }] = useMutation(unFavoritePokemonMutation);
-
-	useEffect(() => {
-		if (dataFavorite || dataUnFavorite) {
-			refetch();
-		}
-	}, [dataFavorite, dataUnFavorite, refetch]);
 
 	if (error) {
 		return <>Error</>;
@@ -44,7 +35,7 @@ export default function Home() {
 		<div className={styles.page}>
 			<header className={styles.header}>
 				<Container>
-					<FiltersBar
+					<FiltersPanel
 						activeTab={activeTab}
 						onTabChange={(activeTab) => setActiveTab(activeTab)}
 						onCardViewChange={(cardView) => setCardView(cardView)}
@@ -62,17 +53,8 @@ export default function Home() {
 						<p style={{ margin: 'auto' }}>There&apos;s nothing here.</p>
 					) : (
 						<CardsList view={cardView}>
-							{pokemons?.map(({ id, ...props }) => (
-								<Card
-									{...props}
-									key={id}
-									view={cardView}
-									onFavoriteClick={() => {
-										const data = { variables: { id } };
-
-										props.isFavorite ? unFavoritePokemon(data) : favoritePokemon(data);
-									}}
-								/>
+							{pokemons?.map(({ ...props }) => (
+								<Card key={props.id} {...props} view={cardView} refetch={refetch} />
 							))}
 						</CardsList>
 					)}

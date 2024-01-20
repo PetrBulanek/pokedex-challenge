@@ -1,18 +1,16 @@
-import { Pokemon } from '@/app/lib/gql/graphql';
-import { FavoriteIcon } from '@/components/icons/Favorite';
-import { FavoriteOutlineIcon } from '@/components/icons/FavoriteOutline';
-import { CardsView } from '@/types';
+import { CardView, PokemonCard } from '@/types';
 import clsx from 'clsx';
 import Image from 'next/image';
-import { MouseEventHandler } from 'react';
+import Link from 'next/link';
+import { FavoriteButton } from '../FavoriteButton/FavoriteButton';
 import styles from './Card.module.scss';
 
-interface CardProps extends Pick<Pokemon, 'image' | 'name' | 'types' | 'isFavorite'> {
-	view?: CardsView;
-	onFavoriteClick?: MouseEventHandler;
-}
+type CardProps = PokemonCard & {
+	view?: CardView;
+	refetch: () => void;
+};
 
-const Card = ({ view = 'grid', image, name, types, isFavorite, onFavoriteClick }: CardProps) => {
+const Card = ({ view = 'grid', id, image, name, types, isFavorite, refetch }: CardProps) => {
 	return (
 		<article className={clsx([styles.card, styles[view]])}>
 			<figure className={styles.image}>
@@ -23,19 +21,14 @@ const Card = ({ view = 'grid', image, name, types, isFavorite, onFavoriteClick }
 
 			<div className={styles.body}>
 				<div className={styles.content}>
-					<h3 className={styles.name}>{name}</h3>
+					<h3 className={styles.name}>
+						<Link href={`/${name}`}>{name}</Link>
+					</h3>
 
-					<p className={styles.types}>{types.join(', ')}</p>
+					{types && <p className={styles.types}>{types.join(', ')}</p>}
 				</div>
 
-				<button
-					type="button"
-					onClick={onFavoriteClick}
-					aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
-					className={styles.favorite}
-				>
-					{isFavorite ? <FavoriteIcon size={20} /> : <FavoriteOutlineIcon size={20} />}
-				</button>
+				<FavoriteButton id={id} isFavorite={isFavorite} refetch={refetch} />
 			</div>
 		</article>
 	);

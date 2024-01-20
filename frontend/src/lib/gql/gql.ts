@@ -17,6 +17,7 @@ const documents = {
     "\n\tmutation UnFavoritePokemon($id: ID!) {\n\t\tunFavoritePokemon(id: $id) {\n\t\t\tid\n\t\t}\n\t}\n": types.UnFavoritePokemonDocument,
     "\n\tquery Pokemons {\n\t\tpokemons(query: { limit: -1 }) {\n\t\t\tedges {\n\t\t\t\tid\n\t\t\t\timage\n\t\t\t\tname\n\t\t\t\ttypes\n\t\t\t\tisFavorite\n\t\t\t}\n\t\t}\n\t}\n": types.PokemonsDocument,
     "\n\tquery PokemonTypes {\n\t\tpokemonTypes\n\t}\n": types.PokemonTypesDocument,
+    "\n\tquery PokemonByName($name: String!) {\n\t\tpokemonByName(name: $name) {\n\t\t\tid\n\t\t\tname\n\t\t\tweight {\n\t\t\t\tminimum\n\t\t\t\tmaximum\n\t\t\t}\n\t\t\theight {\n\t\t\t\tminimum\n\t\t\t\tmaximum\n\t\t\t}\n\t\t\ttypes\n\t\t\tmaxCP\n\t\t\tevolutions {\n\t\t\t\tid\n\t\t\t\timage\n\t\t\t\tname\n\t\t\t\tisFavorite\n\t\t\t}\n\t\t\tmaxHP\n\t\t\timage\n\t\t\tsound\n\t\t\tisFavorite\n\t\t}\n\t}\n": types.PokemonByNameDocument,
 };
 
 /**
@@ -49,6 +50,10 @@ export function gql(source: "\n\tquery Pokemons {\n\t\tpokemons(query: { limit: 
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "\n\tquery PokemonTypes {\n\t\tpokemonTypes\n\t}\n"): (typeof documents)["\n\tquery PokemonTypes {\n\t\tpokemonTypes\n\t}\n"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\n\tquery PokemonByName($name: String!) {\n\t\tpokemonByName(name: $name) {\n\t\t\tid\n\t\t\tname\n\t\t\tweight {\n\t\t\t\tminimum\n\t\t\t\tmaximum\n\t\t\t}\n\t\t\theight {\n\t\t\t\tminimum\n\t\t\t\tmaximum\n\t\t\t}\n\t\t\ttypes\n\t\t\tmaxCP\n\t\t\tevolutions {\n\t\t\t\tid\n\t\t\t\timage\n\t\t\t\tname\n\t\t\t\tisFavorite\n\t\t\t}\n\t\t\tmaxHP\n\t\t\timage\n\t\t\tsound\n\t\t\tisFavorite\n\t\t}\n\t}\n"): (typeof documents)["\n\tquery PokemonByName($name: String!) {\n\t\tpokemonByName(name: $name) {\n\t\t\tid\n\t\t\tname\n\t\t\tweight {\n\t\t\t\tminimum\n\t\t\t\tmaximum\n\t\t\t}\n\t\t\theight {\n\t\t\t\tminimum\n\t\t\t\tmaximum\n\t\t\t}\n\t\t\ttypes\n\t\t\tmaxCP\n\t\t\tevolutions {\n\t\t\t\tid\n\t\t\t\timage\n\t\t\t\tname\n\t\t\t\tisFavorite\n\t\t\t}\n\t\t\tmaxHP\n\t\t\timage\n\t\t\tsound\n\t\t\tisFavorite\n\t\t}\n\t}\n"];
 
 export function gql(source: string) {
   return (documents as any)[source] ?? {};
