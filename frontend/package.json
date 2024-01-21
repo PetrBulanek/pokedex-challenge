@@ -22,6 +22,7 @@
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
     "react-infinite-scroll-hook": "^4.1.1",
+    "react-scrollbar-size": "^5.0.0",
     "usehooks-ts": "^2.9.4"
   },
   "devDependencies": {

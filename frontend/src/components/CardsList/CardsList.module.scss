@@ -17,5 +17,8 @@
 
 	@media (min-width: 64rem) {
 		--columns: 5;
+		:global(.cds--modal) & {
+			--columns: 4;
+		}
 	}
 }

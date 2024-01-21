@@ -1,6 +1,8 @@
 .detailCard {
 	border: 1px solid var(--gray-dark);
-	margin-bottom: calc(2 * var(--spacer-default));
+	&:not(:last-child) {
+		margin-bottom: calc(2 * var(--spacer-default));
+	}
 }
 
 .header {

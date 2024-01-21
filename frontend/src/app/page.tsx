@@ -29,7 +29,7 @@ export default function Home() {
 
 	const pokemons =
 		data?.pokemons.edges.filter((pokemon) => (activeTab === 'favorite' ? pokemon.isFavorite : true)) || [];
-	const hasNextPage = pokemons?.length && data?.pokemons.count ? pokemons.length < data?.pokemons.count : true;
+	const hasNextPage = pokemons.length && data?.pokemons.count ? pokemons.length < data?.pokemons.count : true;
 
 	useEffect(() => {
 		refetch({

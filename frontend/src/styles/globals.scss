@@ -1,5 +1,6 @@
 @use '@carbon/react/scss/components/text-input';
 @use '@carbon/react/scss/components/combo-box';
+@use '@carbon/react/scss/components/modal';
 @use '@carbon/react/scss/utilities/visually-hidden';
 
 :root {
@@ -34,6 +35,9 @@ body {
 	overflow-y: scroll;
 	background-color: var(--body-bg);
 	color: var(--body-color);
+	&.cds--body--with-modal-open {
+		padding-right: var(--scrollbar-width);
+	}
 }
 
 button {
@@ -42,4 +46,8 @@ button {
 	background-color: transparent;
 	appearance: none;
 	border: 0;
+}
+
+.cds--modal-content {
+	background-color: var(--body-bg);
 }
