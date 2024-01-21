@@ -7,9 +7,7 @@ import { PlaySoundButton } from '../PlaySoundButton/PlaySoundButton';
 import { VitalSigns } from '../VitalSigns/VitalSigns';
 import styles from './DetailCard.module.scss';
 
-type DetailCardProps = PokemonDetailCard & {
-	refetch: () => void;
-};
+type DetailCardProps = PokemonDetailCard & {};
 
 const DetailCard = ({
 	id,
@@ -23,7 +21,6 @@ const DetailCard = ({
 	weight,
 	sound,
 	evolutions,
-	refetch,
 }: DetailCardProps) => {
 	return (
 		<>
@@ -48,7 +45,7 @@ const DetailCard = ({
 							<p className={styles.types}>{types.join(', ')}</p>
 						</div>
 
-						<FavoriteButton id={id} isFavorite={isFavorite} size="lg" name={name} refetch={refetch} />
+						<FavoriteButton id={id} isFavorite={isFavorite} size="lg" name={name} />
 					</div>
 
 					<div className={styles.bodyBottom}>
@@ -79,7 +76,7 @@ const DetailCard = ({
 
 					<CardsList>
 						{evolutions.map((evolution, idx) => (
-							<Card key={idx} {...evolution} refetch={refetch} />
+							<Card key={idx} {...evolution} />
 						))}
 					</CardsList>
 				</section>

@@ -10,13 +10,14 @@
 	--gray-light: #eee;
 	--gray-dark: #ccc;
 
-	--primary-color: #74c0a2;
+	--color-primary: #74c0a2;
+	--color-primary-hover: #4daa85;
 
 	--card-body-bg: #f3f3f3;
 	--card-favorite-color: #fc0d1b;
 
 	--cp-bar-bg: #9fa1fc;
-	--hp-bar-bg: var(--primary-color);
+	--hp-bar-bg: var(--color-primary);
 }
 
 *,

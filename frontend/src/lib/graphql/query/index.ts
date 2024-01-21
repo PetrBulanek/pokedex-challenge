@@ -1,8 +1,9 @@
 import { gql } from '../../gql';
 
 export const getPokemonsQuery = gql(`
-	query Pokemons {
-		pokemons(query: { limit: -1 }) {
+	query Pokemons($limit: Int, $offset: Int, $search: String, $filter: PokemonFilterInput) {
+		pokemons(query: { limit: $limit, offset: $offset, search: $search, filter: $filter }) {
+			count
 			edges {
 				id
 				image

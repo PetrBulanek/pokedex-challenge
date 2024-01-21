@@ -7,10 +7,9 @@ import styles from './Card.module.scss';
 
 type CardProps = PokemonCard & {
 	view?: CardView;
-	refetch: () => void;
 };
 
-const Card = ({ view = 'grid', id, image, name, types, isFavorite, refetch }: CardProps) => {
+const Card = ({ view = 'grid', id, image, name, types, isFavorite }: CardProps) => {
 	return (
 		<article className={clsx([styles.card, styles[view]])}>
 			<figure className={styles.image}>
@@ -28,7 +27,7 @@ const Card = ({ view = 'grid', id, image, name, types, isFavorite, refetch }: Ca
 					{types && <p className={styles.types}>{types.join(', ')}</p>}
 				</div>
 
-				<FavoriteButton id={id} isFavorite={isFavorite} name={name} refetch={refetch} />
+				<FavoriteButton id={id} isFavorite={isFavorite} name={name} />
 			</div>
 		</article>
 	);

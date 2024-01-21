@@ -4,5 +4,9 @@
 	justify-content: center;
 	width: 3rem;
 	height: 3rem;
-	color: var(--primary-color);
+	color: var(--color-primary);
+	transition: color 0.3s;
+	&:hover {
+		color: var(--color-primary-hover);
+	}
 }
