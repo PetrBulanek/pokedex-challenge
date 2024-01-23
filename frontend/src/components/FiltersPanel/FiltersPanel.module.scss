@@ -37,7 +37,11 @@
 	flex-grow: 1;
 	display: grid;
 	column-gap: var(--spacer-default);
-	grid-template-columns: 2fr 1fr;
+	grid-template-columns: 1fr 1fr;
+
+	@media (min-width: 30rem) {
+		grid-template-columns: 2fr 1fr;
+	}
 }
 
 .viewButtonsGroup {
